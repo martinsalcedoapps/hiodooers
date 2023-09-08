@@ -22,6 +22,6 @@ class AccountItemsProcessLine(models.TransientModel):
     _description = 'Account Items Process Line'
 
     parent_id = fields.Many2one('account.items.process', string="Processor", ondelete='cascade')
-    selected = fields.Boolean('Selected')
-    product_id = fields.Many2one('product.product', string="Product")
-    qty = fields.Float("Qty")
+    selected = fields.Boolean('Selected', default=True)
+    product_id = fields.Many2one('product.product', string="Product", required=True)
+    qty = fields.Float("Qty", required=True)
